@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title', '控制台')
+@section('title', 'Console')
 @section('content')
     <!-- Page title -->
     <div class="page-header d-print-none">
@@ -7,10 +7,10 @@
             <div class="col">
                 <!-- Page pre-title -->
                 <div class="page-pretitle">
-                    概览
+                    Overview
                 </div>
                 <h2 class="page-title">
-                    控制台
+                    Console
                 </h2>
             </div>
             <!-- Page title actions -->
@@ -18,7 +18,7 @@
                 <div class="btn-list">
                   <span class="d-none d-sm-inline">
                     <a href="{{ route('admin.account.list') }}" class="btn btn-white">
-                      管理账号
+                      Manage Account
                     </a>
                   </span>
                     <a href="{{ route('install') }}" class="btn btn-primary d-none d-sm-inline-block">
@@ -29,7 +29,7 @@
                             <line x1="12" y1="5" x2="12" y2="19"></line>
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                         </svg>
-                        绑定账号
+                        Bind Account
                     </a>
                     <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal"
                        data-bs-target="#modal-report" aria-label="Create new report">
@@ -62,7 +62,7 @@
                         </span>
                         </div>
                         <div class="h1 m-0">{{ $accounts_count }}</div>
-                        <div class="text-muted mb-3">绑定账号</div>
+                        <div class="text-muted mb-3">Bind Account</div>
                     </div>
                 </div>
             </a>
@@ -82,7 +82,7 @@
                         </span>
                         </div>
                         <div class="h1 m-0">{{ $links_count }}</div>
-                        <div class="text-muted mb-3">转换短链</div>
+                        <div class="text-muted mb-3">Convert Short Links</div>
                     </div>
                 </div>
             </a>

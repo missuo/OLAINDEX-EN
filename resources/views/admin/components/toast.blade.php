@@ -43,7 +43,7 @@
             </div>
             <div>
                 <h4 class="alert-title">
-                    Ops! 出错了~
+                    Ops! Error~
                 </h4>
                 <div class="text-muted">
                     @foreach ($errors->all() as $error)

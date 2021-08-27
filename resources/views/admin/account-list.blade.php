@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title', '账号管理')
+@section('title', 'Account Manager')
 @section('content')
     <!-- Page title -->
     <div class="page-header d-print-none">
@@ -7,10 +7,10 @@
             <div class="col">
                 <!-- Page pre-title -->
                 <div class="page-pretitle">
-                    列表
+                    List
                 </div>
                 <h2 class="page-title">
-                    账号管理
+                    Account Manager
                 </h2>
             </div>
             <!-- Page title actions -->
@@ -24,7 +24,7 @@
                             <line x1="12" y1="5" x2="12" y2="19"></line>
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                         </svg>
-                        绑定账号
+                        Bind Account
                     </a>
                     <a href="{{ route('install') }}" class="btn btn-primary d-sm-none btn-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
@@ -49,18 +49,18 @@
                             <th class="row">
                                 No.
                             </th>
-                            <th>类型</th>
-                            <th>状态</th>
-                            <th>上次刷新</th>
-                            <th>备注 <span class="small">(选择显示)</span></th>
-                            <th class="text-end">操作</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Last Update</th>
+                            <th>Remark <span class="small">(Choose Display)</span></th>
+                            <th class="text-end">Operate</th>
                         </tr>
                         </thead>
                         <tbody>
                         @if(blank($accounts))
                             <tr>
                                 <td colspan="6" class="text-center">
-                                    Ops! 暂无资源
+                                    Ops! No Resourse
                                 </td>
                             </tr>
                         @else
@@ -69,10 +69,10 @@
                                     <th>{{ $account->id }}</th>
                                     <td>{{ $account->accountType }}
                                         @if((int)setting('primary_account') === $account->id)
-                                            <span class="badge badge-primary">主账号</span>
+                                            <span class="badge badge-primary">Main Account</span>
                                         @endif
                                     </td>
-                                    <td>{!! $account->status ? '<span style="color:green">正常</span>':'<span style="color:red">禁用</span>' !!}</td>
+                                    <td>{!! $account->status ? '<span style="color:green">Normal</span>':'<span style="color:red">Disable</span>' !!}</td>
                                     <td>{{ $account->updated_at }}</td>
                                     <td>
                                         <label>
@@ -85,23 +85,23 @@
                                         <div class="dropdown">
                                             <button class="btn dropdown-toggle align-text-top"
                                                     data-bs-boundary="viewport" data-bs-toggle="dropdown">
-                                                操作
+                                                Operate
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-end" data-id="{{ $account->id }}">
                                                 <a class="dropdown-item set_main"
-                                                   href="javascript:void(0)">设为主账号</a>
+                                                   href="javascript:void(0)">Set As Main Account</a>
                                                 <a class="dropdown-item"
-                                                   href="{{ route('manage.query',['account_id' =>$account->id])  }}">文件管理</a>
+                                                   href="{{ route('manage.query',['account_id' =>$account->id])  }}">Files Manager</a>
                                                 <a class="dropdown-item"
-                                                   href="{{ route('admin.account.config',['id' =>$account->id])  }}">账号设置</a>
+                                                   href="{{ route('admin.account.config',['id' =>$account->id])  }}">Account Settings</a>
                                                 <a class="dropdown-item view_account"
                                                    href="javascript:void(0)" data-bs-toggle="modal"
-                                                   data-bs-target="#viewAccount">账号详情</a>
+                                                   data-bs-target="#viewAccount">Account Details</a>
                                                 <a class="dropdown-item view_drive"
                                                    href="javascript:void(0)" data-bs-toggle="modal"
-                                                   data-bs-target="#viewDrive">网盘详情</a>
+                                                   data-bs-target="#viewDrive">Drive Details</a>
                                                 <a class="dropdown-item text-danger delete_account"
-                                                   href="javascript:void(0)">删除</a>
+                                                   href="javascript:void(0)">Delete</a>
                                             </div>
                                         </div>
                                     </td>
@@ -121,7 +121,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">网盘信息</h5>
+                    <h5 class="modal-title">Drive Info</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -152,8 +152,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn me-auto" data-bs-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">确定</button>
+                    <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Set</button>
                 </div>
             </div>
         </div>
@@ -162,7 +162,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">账号信息</h5>
+                    <h5 class="modal-title">Account Info</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -183,8 +183,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn me-auto" data-bs-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">确定</button>
+                    <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Set</button>
                 </div>
             </div>
         </div>
@@ -258,14 +258,14 @@
             $('.delete_account').on('click', function(e) {
                 let account_id = $(this).parent().attr('data-id')
                 Swal.fire({
-                    title: '确定删除吗?',
-                    text: '删除后无法恢复!',
+                    title: 'Sure to delete??',
+                    text: 'Unrecoverable after deletion!',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
+                    confirmButtonText: 'Set',
+                    cancelButtonText: 'Cancel',
                 }).then((result) => {
                     if (result.value) {
                         axios.post('/admin/account/delete/' + account_id)
@@ -273,8 +273,8 @@
                                 let data = response.data
                                 if (data.error === '') {
                                     Swal.fire({
-                                        title: '操作成功',
-                                        text: '删除账号成功',
+                                        title: 'Successful operation',
+                                        text: 'Delete account successfully',
                                         icon: 'success',
                                     }).then(() => {
                                         window.location.reload()
@@ -311,8 +311,8 @@
                         let data = response.data
                         if (data.error === '') {
                             Swal.fire({
-                                title: '操作成功',
-                                text: '设置主账号成功',
+                                title: 'Successful operation',
+                                text: 'Set up main account successfully',
                                 icon: 'success',
                             }).then(() => {
                                 window.location.reload()

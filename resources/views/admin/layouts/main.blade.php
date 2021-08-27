@@ -4,7 +4,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>@yield('title')</title>
+    <!--<title>@yield('title')</title>-->
+    <title>{{ setting('site_name','OLAINDEX') . ' - Console Panel' }}</title>
     <link rel="stylesheet" href="{{ asset('tabler/dist/css/tabler.min.css') }}">
     <link rel="stylesheet" href="{{ asset('tabler/dist/css/tabler-vendors.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.8.1/dist/sweetalert2.min.css">
@@ -19,7 +20,7 @@
             </button>
             <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
                 <a href="{{ route('home') }}">
-                    OLAINDEX
+                   {{ setting('site_name','OLAINDEX') }}
                 </a>
             </h1>
             <div class="navbar-nav flex-row order-md-last">
@@ -29,14 +30,14 @@
                         <span class="avatar avatar-sm" style="background-image: url({{ asset('img/log.svg') }})"></span>
                         <div class="d-none d-xl-block ps-2">
                             <div>{{ Auth::user()->name }}</div>
-                            <div class="mt-1 small text-muted">管理员</div>
+                            <div class="mt-1 small text-muted">Founder</div>
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <a href="{{ route('admin.profile') }}" class="dropdown-item">我的信息</a>
+                        <a href="{{ route('admin.profile') }}" class="dropdown-item">Profile</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            退出
+                            Logout
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
@@ -58,16 +59,8 @@
                     <div class="col-lg-auto ms-lg-auto">
                         <ul class="list-inline list-inline-dots mb-0">
                             <li class="list-inline-item">
-                                <a href="//olaindex.js.org" target="_blank" class="link-secondary">文档</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="//github.com/WangNingkai/OLAINDEX/issues/new/choose"
-                                   target="_blank"
-                                   class="link-secondary">反馈</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://github.com/wangningkai/olaindex" target="_blank" class="link-secondary"
-                                   rel="noopener">源码</a>
+                                <a href="https://eowo.ru" target="_blank" class="link-secondary"
+                                   rel="noopener"> OwO </a>
                             </li>
                         </ul>
                     </div>
@@ -75,13 +68,22 @@
                         <ul class="list-inline list-inline-dots mb-0">
                             <li class="list-inline-item">
                                 Copyright &copy; {{ date('Y') }}
-                                <a href="https://github.com/wangningkai/olaindex" target="_blank"
-                                   class="link-secondary">OLAINDEX</a>.
+                                <a href="https://eowo.ru" target="_blank"
+                                   class="link-secondary">OwO Network Limited</a>.
                                 All rights reserved.
                             </li>
                             <li class="list-inline-item">
-                                <a href="https://github.com/wangningkai/olaindex" target="_blank" class="link-secondary"
-                                   rel="noopener">v6.0</a>
+                                <p id="hitokoto"><a href="#" id="hitokoto_text">:D Fetching...</a></p>
+                                <script>
+                                  fetch('https://v1.hitokoto.cn')
+                                    .then(response => response.json())
+                                    .then(data => {
+                                      const hitokoto = document.getElementById('hitokoto_text')
+                                      hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+                                      hitokoto.innerText = data.hitokoto
+                                    })
+                                    .catch(console.error)
+                                </script>
                             </li>
                         </ul>
                     </div>

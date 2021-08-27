@@ -18,7 +18,7 @@
                                         <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/>
                                     </svg>
                                 </span>
-                            <span class="nav-link-title"> 首页</span>
+                            <span class="nav-link-title">Index</span>
                         </a>
                     </li>
 
@@ -39,7 +39,7 @@
                                         <line x1="16" y1="5.25" x2="8" y2="9.75"/>
                                     </svg>
                                 </span>
-                            <span class="nav-link-title">设置</span>
+                            <span class="nav-link-title">Settings</span>
                         </a>
                     </li>
 
@@ -56,7 +56,7 @@
                                         <line x1="5" y1="18" x2="5" y2="18.01"/>
                                     </svg>
                                 </span>
-                            <span class="nav-link-title">账号管理</span>
+                            <span class="nav-link-title">Account Manager</span>
                         </a>
                     </li>
 
@@ -71,7 +71,7 @@
                                            d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"/><path
                                            d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"/></svg>
                                 </span>
-                            <span class="nav-link-title">短链管理</span>
+                            <span class="nav-link-title">Short Links Manager</span>
                         </a>
                     </li>
 
@@ -88,7 +88,7 @@
                                         points="9 11 12 14 20 6"/><path
                                         d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9"/></svg>
                             </span>
-                            <span class="nav-link-title">清理缓存</span>
+                            <span class="nav-link-title">Clear Cache</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -108,7 +108,7 @@
                                         y2="9"/><line
                                         x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
                             </span>
-                            <span class="nav-link-title">日志</span>
+                            <span class="nav-link-title">Logs</span>
                         </a>
                     </li>
                 </ul>

@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title', '账号绑定')
+@section('title', 'Account Bind')
 @section('content')
     <!-- Page title -->
     <div class="page-header d-print-none">
@@ -10,7 +10,7 @@
                     OLAINDEX
                 </div>
                 <h2 class="page-title">
-                    账号绑定
+                    Account Bind
                 </h2>
             </div>
         </div>
@@ -19,8 +19,8 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">账号绑定</h3>
-                    <small class="text-danger">请确认以下信息</small>
+                    <h3 class="card-title">Account Bind</h3>
+                    <small class="text-danger">Please confirm the following information</small>
                 </div>
                 <div class="card-body">
                     <div class="form-group mb-3">
@@ -40,7 +40,7 @@
                                value="{{ $redirectUri }}" readonly>
                     </div>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="accountType">账号类型 </label>
+                        <label class="form-label" for="accountType">Account Type </label>
                         <input type="text" class="form-control" id="accountType" name="accountType"
                                value="{{ $accountType }}" readonly>
                     </div>
@@ -53,8 +53,8 @@
                         @csrf
                     </form>
                     <a href="javascript:void(0)" onclick="event.preventDefault();document.getElementById('bind-form').submit();"
-                       class="btn btn-info">绑定</a>
-                    <a href="{{ route('reset') }}" class="btn btn-danger">返回更改</a>
+                       class="btn btn-info">Bind</a>
+                    <a href="{{ route('reset') }}" class="btn btn-danger">Return to Change</a>
                 </div>
             </div>
         </div>

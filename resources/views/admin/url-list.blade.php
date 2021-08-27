@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title', '短链管理')
+@section('title', 'Short Links Manager')
 @section('content')
     <!-- Page title -->
     <div class="page-header d-print-none">
@@ -7,10 +7,10 @@
             <div class="col">
                 <!-- Page pre-title -->
                 <div class="page-pretitle">
-                    列表
+                    List
                 </div>
                 <h2 class="page-title">
-                    短链管理
+                Short Links Manager
                 </h2>
             </div>
             <!-- Page title actions -->
@@ -27,7 +27,7 @@
                                     x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/><path
                                     d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path
                                     d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/></svg>
-                            清空
+                            Empty
                         </a>
                     </span>
                 </div>
@@ -44,17 +44,17 @@
                             <th class="row">
                                 No.
                             </th>
-                            <th>源链</th>
-                            <th>短链</th>
-                            <th>添加时间</th>
-                            <th class="text-end">操作</th>
+                            <th>Source Link</th>
+                            <th>Short Link</th>
+                            <th>Created Time</th>
+                            <th class="text-end">Operate</th>
                         </tr>
                         </thead>
                         <tbody>
                         @if(blank($urls))
                             <tr>
                                 <td colspan="5" class="text-center">
-                                    Ops! 暂无资源
+                                    Ops! No Resources!
                                 </td>
                             </tr>
                         @else
@@ -70,7 +70,7 @@
                                     <td>{{ $url->created_at }}</td>
                                     <td class="text-end" data-id="{{ $url->id  }}">
                                         <a href="javascript:void(0);" class="btn btn-danger delete">
-                                            删除
+                                            Delete
                                         </a>
                                     </td>
                                 </tr>
@@ -92,14 +92,14 @@
             $('.delete').on('click', function(e) {
                 let _id = $(this).parent().attr('data-id')
                 Swal.fire({
-                    title: '确定删除吗?',
-                    text: '删除后无法恢复!',
+                    title: 'Sure to delete?',
+                    text: 'Unrecoverable after deletion!',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
+                    confirmButtonText: 'Set',
+                    cancelButtonText: 'Cancel',
                 }).then((result) => {
                     if (result.value) {
                         axios.post('/admin/url/delete/' + _id)
@@ -107,8 +107,8 @@
                                 let data = response.data
                                 if (data.error === '') {
                                     Swal.fire({
-                                        title: '操作成功',
-                                        text: '删除成功',
+                                        title: 'Operated successfully',
+                                        text: 'Deleted successfully',
                                         icon: 'success',
                                     }).then(() => {
                                         window.location.reload()
@@ -124,14 +124,14 @@
             })
             $('.delete-all').on('click', function(e) {
                 Swal.fire({
-                    title: '确定清空吗?',
-                    text: '清空后无法恢复!',
+                    title: 'Sure to empty?',
+                    text: 'Unrecoverable after empty!',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
+                    confirmButtonText: 'Set',
+                    cancelButtonText: 'Cancel',
                 }).then((result) => {
                     if (result.value) {
                         axios.post('/admin/url/empty')
@@ -139,8 +139,8 @@
                                 let data = response.data
                                 if (data.error === '') {
                                     Swal.fire({
-                                        title: '操作成功',
-                                        text: '清空成功',
+                                        title: 'Operated successfully',
+                                        text: 'Emptyed successfully',
                                         icon: 'success',
                                     }).then(() => {
                                         window.location.reload()

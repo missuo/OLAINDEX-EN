@@ -28,7 +28,7 @@
     ];
 @endphp
 @extends('admin.layouts.main')
-@section('title', '基础设置')
+@section('title', 'Basic Settings')
 @section('content')
     <!-- Page title -->
     <div class="page-header d-print-none">
@@ -36,10 +36,10 @@
             <div class="col">
                 <!-- Page pre-title -->
                 <div class="page-pretitle">
-                    设置
+                    Settings
                 </div>
                 <h2 class="page-title">
-                    站点设置
+                    Site Settings
                 </h2>
             </div>
         </div>
@@ -49,13 +49,13 @@
             <div class="card">
                 <ul class="nav nav-tabs" data-bs-toggle="tabs">
                     <li class="nav-item">
-                        <a href="#basic-config" class="nav-link active" data-bs-toggle="tab">基础设置</a>
+                        <a href="#basic-config" class="nav-link active" data-bs-toggle="tab">Basic Settings</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#show-config" class="nav-link" data-bs-toggle="tab">显示设置</a>
+                        <a href="#show-config" class="nav-link" data-bs-toggle="tab">Display Settings</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#image-config" class="nav-link" data-bs-toggle="tab">图床设置</a>
+                        <a href="#image-config" class="nav-link" data-bs-toggle="tab">Image Hosting Settings</a>
                     </li>
                 </ul>
                 <div class="card-body">
@@ -64,17 +64,17 @@
                             <form action="" method="post">
                                 @csrf
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="site_name">网站名称</label>
+                                    <label class="form-label" for="site_name">Site Name</label>
                                     <div>
                                         <input type="text" class="form-control" id="site_name" name="site_name"
                                                value="{{ setting('site_name','OLAINDEX') }}">
-                                        <small class="form-hint text-danger">显示的网站名称.</small>
+                                        <small class="form-hint text-danger">Displayed Site Name.</small>
                                     </div>
                                 </div>
 
 
                                 <div class="form-group mb-3 ">
-                                    <label class="form-label" for="main_theme">显示主题</label>
+                                    <label class="form-label" for="main_theme">Theme</label>
                                     <div>
                                         <select class="form-select" name="main_theme" id="main_theme">
                                             @foreach( $main_themes as $name => $theme)
@@ -88,7 +88,7 @@
                                 </div>
 
                                 <div class="form-group mb-3 ">
-                                    <label class="form-label" for="site_theme">主题</label>
+                                    <label class="form-label" for="site_theme">Secondary Theme</label>
                                     <div>
                                         <select class="form-select" name="site_theme" id="site_theme">
                                             @foreach( $themes as $name => $theme)
@@ -98,16 +98,16 @@
                                                 </option>
                                             @endforeach
                                         </select>
-                                        <small class="form-hint text-danger">仅在显示主题设置为 default 时生效.</small>
+                                        <small class="form-hint text-danger">Effective only when display theme is set to default.</small>
                                     </div>
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="cache_expires">网盘资源缓存时间(秒)</label>
+                                    <label class="form-label" for="cache_expires">Cache Time For Web Resources(Seconds)</label>
                                     <div>
                                         <input type="text" class="form-control" id="cache_expires" name="cache_expires"
                                                value="{{ setting('cache_expires', 1800) }}">
-                                        <small class="form-hint text-danger">建议缓存时间小于60分钟，否则会导致缓存失效.</small>
+                                        <small class="form-hint text-danger">It is recommended that the cache time is less than 60 minutes, otherwise it will lead to cache invalidation.</small>
                                     </div>
                                 </div>
 
@@ -116,11 +116,11 @@
                                         <input class="form-check-input" type="checkbox" id="open_search"
                                                @if( setting('open_search',0)) checked
                                                @endif onchange="$('input[name=\'open_search\']').val(Number(this.checked))">
-                                        <span class="form-check-label">开启目录搜索</span>
+                                        <span class="form-check-label">Enable Directory Search</span>
                                         <input type="hidden" name="open_search"
                                                value="{{ setting('open_search', 0) }}">
                                     </label>
-                                    <span class="form-hint text-danger">目录搜索仅为当前目录资源搜索，不适用全局搜索</span>
+                                    <span class="form-hint text-danger">Directory search is only for the current directory resource search, not for global search</span>
                                 </div>
 
 
@@ -129,11 +129,11 @@
                                         <input class="form-check-input" type="checkbox" id="open_short_url"
                                                @if( setting('open_short_url',0)) checked
                                                @endif onchange="$('input[name=\'open_short_url\']').val(Number(this.checked))">
-                                        <span class="form-check-label">开启预览短链</span>
+                                        <span class="form-check-label">Enable Preview Short Links</span>
                                         <input type="hidden" name="open_short_url"
                                                value="{{ setting('open_short_url', 0) }}">
                                     </label>
-                                    <span class="form-hint text-danger">开启后预览文件只显示短链</span>
+                                    <span class="form-hint text-danger">Only short links are shown in the preview file after turning on</span>
                                 </div>
 
                                 <div class="form-group mb-3 ">
@@ -141,66 +141,66 @@
                                         <input class="form-check-input" type="checkbox" id="single_account_mode"
                                                @if( setting('single_account_mode',0)) checked
                                                @endif onchange="$('input[name=\'single_account_mode\']').val(Number(this.checked))">
-                                        <span class="form-check-label">路径兼容模式</span>
+                                        <span class="form-check-label">Path-Compatible Mode</span>
                                         <input type="hidden" name="single_account_mode"
                                                value="{{ setting('single_account_mode', 0) }}">
                                     </label>
-                                    <span class="form-hint text-danger">开启后按路径访问资源</span>
+                                    <span class="form-hint text-danger">Access resources by path after opening</span>
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="encrypt_tip">加密资源提示文案</label>
+                                    <label class="form-label" for="encrypt_tip">Encrypted Resource Tips</label>
                                     <textarea class="form-control" id="encrypt_tip" name="encrypt_tip"
                                               rows="1">{{ setting('encrypt_tip') }}</textarea>
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="copyright">页脚文案</label>
+                                    <label class="form-label" for="copyright">Footer Text</label>
                                     <textarea class="form-control" id="copyright" name="copyright"
                                               rows="3">{{ setting('copyright') }}</textarea>
-                                    <span class="form-hint text-danger">留空则不显示。使用markdown格式表示 如：Made by [xxx](https://xxx)</span>
+                                    <span class="form-hint text-danger">Leave blank to not display. Please use MarkDown</span>
                                 </div>
 
 
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="stats_code">统计代码</label>
+                                    <label class="form-label" for="stats_code">Statistics Code</label>
                                     <textarea class="form-control" id="encrypt_tip" name="stats_code"
                                               rows="3">{{ setting('stats_code') }}</textarea>
-                                    <span class="form-hint text-danger">站点统计代码</span>
+                                    <span class="form-hint text-danger">Site statistics code</span>
                                 </div>
 
 
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="access_token">第三方接口token</label>
+                                    <label class="form-label" for="access_token">Third Party API Token</label>
                                     <div>
                                         <input type="text" class="form-control" id="access_token" name="access_token"
                                                value="{{ setting('access_token', '') }}">
-                                        <small class="form-hint text-danger">第三方接口token(图床、文件列表)</small>
+                                        <small class="form-hint text-danger">Third-party interface token (Image Hosting, Files List)</small>
                                     </div>
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="download_limit">资源下载频率限制（次/分钟）</label>
+                                    <label class="form-label" for="download_limit">Resource Download Frequency Limit (Times/Minute)</label>
                                     <div>
                                         <input type="text" class="form-control" id="download_limit"
                                                name="download_limit"
                                                value="{{ setting('download_limit', 0) }}">
-                                        <small class="form-hint text-danger">全局文件直链访问速率限制</small>
+                                        <small class="form-hint text-danger">Global file direct link access rate limit</small>
                                     </div>
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="user_limit">单一用户下载资源频率限制（次/分钟）</label>
+                                    <label class="form-label" for="user_limit">Single User Download Frequency Limit (Times/Minute)</label>
                                     <div>
                                         <input type="text" class="form-control" id="user_limit"
                                                name="user_limit"
                                                value="{{ setting('user_limit', 0) }}">
-                                        <small class="form-hint text-danger">单个用户文件直链访问速率限制（根据IP统计）</small>
+                                        <small class="form-hint text-danger">Single user file direct link access rate limit (based on IP statistics)</small>
                                     </div>
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="api_limit">接口访问频率限制（次/分钟）</label>
+                                    <label class="form-label" for="api_limit">Interface Access Frequency Limit (Times/Minute)</label>
                                     <div>
                                         <input type="text" class="form-control" id="api_limit" name="api_limit"
                                                value="{{ setting('api_limit', 0) }}">
@@ -208,66 +208,66 @@
                                 </div>
 
                                 <div class="form-footer">
-                                    <button type="submit" class="btn btn-primary">提交</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
                         </div>
                         <div class="tab-pane" id="show-config">
                             <form action="" method="post">
                                 @csrf
-                                <p class="form-text text-danger">文件展示类型（扩展名）以空格分开</p>
+                                <p class="form-text text-danger">File Display Type (Extension Name) Space Separation</p>
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="show_image">图片</label>
+                                    <label class="form-label" for="show_image">Images</label>
                                     <div>
                                         <input type="text" class="form-control" id="show_image" name="show_image"
                                                value="{{ setting('show_image', '') }}">
                                     </div>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="show_video">视频</label>
+                                    <label class="form-label" for="show_video">Videos</label>
                                     <div>
                                         <input type="text" class="form-control" id="show_video" name="show_video"
                                                value="{{ setting('show_video', '') }}">
                                     </div>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="show_dash">Dash视频</label>
+                                    <label class="form-label" for="show_dash">Dash Videos</label>
                                     <div>
                                         <input type="text" class="form-control" id="show_dash" name="show_dash"
                                                value="{{ setting('show_dash', '') }}">
-                                        <span class="form-hint text-danger">不支持个人账号</span>
+                                        <span class="form-hint text-danger">Personal accounts are not supported</span>
                                     </div>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="show_audio">音频</label>
+                                    <label class="form-label" for="show_audio">Audios</label>
                                     <div>
                                         <input type="text" class="form-control" id="show_audio" name="show_audio"
                                                value="{{ setting('show_audio', '') }}">
                                     </div>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="show_doc">Office文档</label>
+                                    <label class="form-label" for="show_doc">Office Documents</label>
                                     <div>
                                         <input type="text" class="form-control" id="show_doc" name="show_doc"
                                                value="{{ setting('show_doc', '') }}">
                                     </div>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="show_code">代码</label>
+                                    <label class="form-label" for="show_code">Code Files</label>
                                     <div>
                                         <input type="text" class="form-control" id="show_code" name="show_code"
                                                value="{{ setting('show_code', '') }}">
                                     </div>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="show_stream">文件流</label>
+                                    <label class="form-label" for="show_stream">File Streaming</label>
                                     <div>
                                         <input type="text" class="form-control" id="show_stream" name="show_stream"
                                                value="{{ setting('show_stream', '') }}">
                                     </div>
                                 </div>
                                 <div class="form-footer">
-                                    <button type="submit" class="btn btn-primary">提交</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -280,11 +280,11 @@
                                         <input class="form-check-input" type="checkbox" id="open_image_host"
                                                @if( setting('open_image_host',0)) checked
                                                @endif onchange="$('input[name=\'open_image_host\']').val(Number(this.checked))">
-                                        <span class="form-check-label">开启图床功能</span>
+                                        <span class="form-check-label">Enable Image Hosting</span>
                                         <input type="hidden" name="open_image_host"
                                                value="{{ setting('open_image_host', 0) }}">
                                     </label>
-                                    <span class="form-hint text-danger">开启后OneDrive可以作为图床使用</span>
+                                    <span class="form-hint text-danger">OneDrive can be used as an image bed after turning on</span>
                                 </div>
 
                                 <div class="form-group mb-3 ">
@@ -292,15 +292,15 @@
                                         <input class="form-check-input" type="checkbox" id="public_image_host"
                                                @if( setting('public_image_host',0)) checked
                                                @endif onchange="$('input[name=\'public_image_host\']').val(Number(this.checked))">
-                                        <span class="form-check-label">设为公有图床</span>
+                                        <span class="form-check-label">Set As Public</span>
                                         <input type="hidden" name="public_image_host"
                                                value="{{ setting('public_image_host', 0) }}">
                                     </label>
-                                    <span class="form-hint text-danger">开启后任何人都可以访问使用</span>
+                                    <span class="form-hint text-danger">Anyone can access and use it after it is turned on</span>
                                 </div>
 
                                 <div class="form-group mb-3 ">
-                                    <label class="form-label" for="image_host_account">选择图床账号</label>
+                                    <label class="form-label" for="image_host_account">Choose Account</label>
                                     <div>
                                         <select class="form-select" name="image_host_account" id="image_host_account">
                                             @foreach( $accounts as $key => $account)
@@ -310,12 +310,12 @@
                                                 </option>
                                             @endforeach
                                         </select>
-                                        <small class="form-hint text-danger">图床默认将使用主账号.</small>
+                                        <small class="form-hint text-danger">Use the main account by default.</small>
                                     </div>
                                 </div>
 
                                 <div class="form-footer">
-                                    <button type="submit" class="btn btn-primary">提交</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
                         </div>

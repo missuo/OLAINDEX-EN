@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title', '文件管理')
+@section('title', 'File Manager')
 @section('content')
     <!-- Page title -->
     <div class="page-header d-print-none">
@@ -10,7 +10,7 @@
                     {{ $account->remark }}
                 </div>
                 <h2 class="page-title">
-                    文件管理
+                File Manager
                 </h2>
             </div>
             <!-- Page title actions -->
@@ -29,7 +29,7 @@
                                         <line x1="5" y1="18" x2="5" y2="18.01"/>
                                     </svg>
                                 </span>
-                      账号列表
+                      Account List
                     </a>
                   </span>
                 </div>
@@ -95,9 +95,9 @@
                                 <form class="form-inline">
                                     <label>
                                         <input type="text" name="keywords"
-                                               placeholder="搜索" class="form-control form-control">
+                                               placeholder="Search" class="form-control form-control">
                                     </label>
-                                    <button class="btn btn-primary mr-2 my-1" type="submit">搜索</button>
+                                    <button class="btn btn-primary mr-2 my-1" type="submit">Search</button>
                                 </form>
                             </div>
                         </div>
@@ -108,11 +108,11 @@
                         <thead>
                         <tr>
                             <th>
-                                文件
+                                File
                             </th>
-                            <th>大小</th>
-                            <th>时间</th>
-                            <th class="text-end">操作</th>
+                            <th>Size</th>
+                            <th>Time</th>
+                            <th class="text-end">Operate</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -127,7 +127,7 @@
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                             <path d="M9 13l-4 -4l4 -4m-4 4h11a4 4 0 0 1 0 8h-1"/>
                                         </svg>
-                                        返回上级
+                                        Back
                                     </a>
                                 @endif
                                 @if(!blank($list))
@@ -139,7 +139,7 @@
                                             <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4"/>
                                             <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"/>
                                         </svg>
-                                        刷新列表
+                                        Refresh List
                                     </a>
                                 @endif
                                 <a class="btn btn-primary mr-2 my-1" href="javascript:void(0)" data-bs-toggle="modal"
@@ -152,7 +152,7 @@
                                         <polyline points="9 15 12 12 15 15"/>
                                         <line x1="12" y1="12" x2="12" y2="21"/>
                                     </svg>
-                                    上传文件
+                                    Upload Files
                                 </a>
                                 <a class="btn btn-primary mr-2 my-1" href="javascript:void(0)" data-bs-toggle="modal"
                                    data-bs-target="#mkdirModal">
@@ -165,7 +165,7 @@
                                         <line x1="12" y1="10" x2="12" y2="16"/>
                                         <line x1="9" y1="13" x2="15" y2="13"/>
                                     </svg>
-                                    创建文件夹
+                                    Create Folder
                                 </a>
                                 @if(blank($readme))
                                     <a class="btn btn-primary mr-2 my-1"
@@ -178,7 +178,7 @@
                                             <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"/>
                                             <line x1="16" y1="5" x2="19" y2="8"/>
                                         </svg>
-                                        新建readme.md
+                                        Create readme.md
                                     </a>
                                 @else
                                     <a class="btn btn-primary mr-2 my-1"
@@ -191,7 +191,7 @@
                                             <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"/>
                                             <line x1="16" y1="5" x2="19" y2="8"/>
                                         </svg>
-                                        编辑readme.md
+                                        Edit readme.md
                                     </a>
                                 @endif
                             </td>
@@ -199,7 +199,7 @@
                         @if(blank($list))
                             <tr>
                                 <td colspan="4" class="text-center">
-                                    Ops! 暂无资源
+                                    Ops! No Resources!
                                 </td>
                             </tr>
                         @else
@@ -238,7 +238,7 @@
                                     <td>{{ date('y-m-d H:i:s', strtotime($data['lastModifiedDateTime'])) }}</td>
                                     <td class="text-end">
                                         <a href="javascript:void(0);" class="btn btn-ghost-danger delete">
-                                            删除
+                                        Delete
                                         </a>
                                     </td>
                                 </tr>
@@ -250,7 +250,7 @@
                 <div class="card-footer d-flex align-items-center">
                     <p class="m-0 text-muted">
                         {{ array_get($item,'folder.childCount',0) }}
-                        个项目
+                        Projects
                         {{ convert_size(array_get($item,'size',0)) }}
                     </p>
                     {{ $list->appends(['sortBy'=> request()->get('sortBy'), 'keywords' => request()->get('keywords')])->links('admin.components.page') }}
@@ -271,18 +271,18 @@
                             <polyline points="9 15 12 12 15 15"/>
                             <line x1="12" y1="12" x2="12" y2="21"/>
                         </svg>
-                        上传文件
+                        Upload Files
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="uploader m-3"><input type="file" class="filepond"
                                                      name="filepond"></div>
-                    <p class="text-danger text-center">上传过程中,请勿刷新,否则会导致上传失败!!!</p>
+                    <p class="text-danger text-center">During the upload process, please do not refresh, otherwise it will lead to upload failure!!!</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn me-auto" data-bs-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary refresh">刷新</button>
+                    <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary refresh">Refresh</button>
                 </div>
             </div>
         </div>
@@ -301,7 +301,7 @@
                             <line x1="12" y1="10" x2="12" y2="16"/>
                             <line x1="9" y1="13" x2="15" y2="13"/>
                         </svg>
-                        创建文件夹
+                        Create Folder
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -309,7 +309,7 @@
                     <div class="modal-body">
                         @csrf
                         <div class="form-group mb-3">
-                            <label class="form-label" for="filename">文件夹名</label>
+                            <label class="form-label" for="filename">Folder Name</label>
                             <input type="text" class="form-control" id="filename" name="filename">
                             <input type="hidden" name="parent_id" id="parent_id" value="{{ $item['id'] }}">
                             <input type="hidden" name="query" id="query" value="{{ $query }}">
@@ -318,8 +318,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn me-auto" data-bs-dismiss="modal">关闭</button>
-                        <button type="submit" class="btn btn-primary">创建</button>
+                        <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Create</button>
                     </div>
                 </form>
             </div>
@@ -337,43 +337,43 @@
             allowMultiple: true,
             maxFiles: 10,
             maxParallelUploads: 1,
-            labelIdle: '拖放文件，或者 <span class="filepond--label-action"> 浏览 </span>',
-            labelInvalidField: '字段包含无效文件',
-            labelFileWaitingForSize: '计算文件大小',
-            labelFileSizeNotAvailable: '文件大小不可用',
-            labelFileLoading: '加载',
-            labelFileLoadError: '加载错误',
-            labelFileProcessing: '上传',
-            labelFileProcessingComplete: '已上传',
-            labelFileProcessingAborted: '上传已取消',
-            labelFileProcessingError: '上传出错',
-            labelFileProcessingRevertError: '还原出错',
-            labelFileRemoveError: '删除出错',
-            labelTapToCancel: '点击取消',
-            labelTapToRetry: '点击重试',
-            labelTapToUndo: '点击撤消',
-            labelButtonRemoveItem: '删除',
-            labelButtonAbortItemLoad: '中止',
-            labelButtonRetryItemLoad: '重试',
-            labelButtonAbortItemProcessing: '取消',
-            labelButtonUndoItemProcessing: '撤消',
-            labelButtonRetryItemProcessing: '重试',
-            labelButtonProcessItem: '上传',
-            labelMaxFileSizeExceeded: '文件太大',
-            labelMaxFileSize: '最大值: {filesize}',
-            labelMaxTotalFileSizeExceeded: '超过最大文件大小',
-            labelMaxTotalFileSize: '最大文件大小：{filesize}',
-            labelFileTypeNotAllowed: '文件类型无效',
-            fileValidateTypeLabelExpectedTypes: '应为 {allButLastType} 或 {lastType}',
-            imageValidateSizeLabelFormatError: '不支持图像类型',
-            imageValidateSizeLabelImageSizeTooSmall: '图像太小',
-            imageValidateSizeLabelImageSizeTooBig: '图像太大',
-            imageValidateSizeLabelExpectedMinSize: '最小值: {minWidth} × {minHeight}',
-            imageValidateSizeLabelExpectedMaxSize: '最大值: {maxWidth} × {maxHeight}',
-            imageValidateSizeLabelImageResolutionTooLow: '分辨率太低',
-            imageValidateSizeLabelImageResolutionTooHigh: '分辨率太高',
-            imageValidateSizeLabelExpectedMinResolution: '最小分辨率：{minResolution}',
-            imageValidateSizeLabelExpectedMaxResolution: '最大分辨率：{maxResolution}',
+            labelIdle: 'Drag and drop files, or <span class="filepond--label-action"> brower </span>',
+            labelInvalidField: 'Field contains invalid file',
+            labelFileWaitingForSize: 'Calculate file size',
+            labelFileSizeNotAvailable: 'File size unavailable',
+            labelFileLoading: 'Loading',
+            labelFileLoadError: 'Loading error',
+            labelFileProcessing: 'Upload',
+            labelFileProcessingComplete: 'Uploaded',
+            labelFileProcessingAborted: 'Upload cancelled',
+            labelFileProcessingError: 'Upload error',
+            labelFileProcessingRevertError: 'Error in restoration',
+            labelFileRemoveError: 'Delete error',
+            labelTapToCancel: 'Click to cancel',
+            labelTapToRetry: 'Click to retry',
+            labelTapToUndo: 'Click to undo',
+            labelButtonRemoveItem: 'Delete',
+            labelButtonAbortItemLoad: 'Stop',
+            labelButtonRetryItemLoad: 'Retry',
+            labelButtonAbortItemProcessing: 'Cancel',
+            labelButtonUndoItemProcessing: 'Undo',
+            labelButtonRetryItemProcessing: 'Retry',
+            labelButtonProcessItem: 'Upload',
+            labelMaxFileSizeExceeded: 'File is too large',
+            labelMaxFileSize: 'MaxSize: {filesize}',
+            labelMaxTotalFileSizeExceeded: 'Exceeds maximum file size',
+            labelMaxTotalFileSize: 'MinSize: {filesize}',
+            labelFileTypeNotAllowed: 'Invalid file type',
+            fileValidateTypeLabelExpectedTypes: 'should be {allButLastType} or {lastType}',
+            imageValidateSizeLabelFormatError: 'Image type not supported',
+            imageValidateSizeLabelImageSizeTooSmall: 'Image size',
+            imageValidateSizeLabelImageSizeTooBig: 'Image is too large',
+            imageValidateSizeLabelExpectedMinSize: 'Min: {minWidth} × {minHeight}',
+            imageValidateSizeLabelExpectedMaxSize: 'Max: {maxWidth} × {maxHeight}',
+            imageValidateSizeLabelImageResolutionTooLow: 'The resolution is too low',
+            imageValidateSizeLabelImageResolutionTooHigh: 'The resolution is too high',
+            imageValidateSizeLabelExpectedMinResolution: 'Min: {minResolution}',
+            imageValidateSizeLabelExpectedMaxResolution: 'Max: {maxResolution}',
             server: {
                 process: (fieldName, file, metadata, load, error, progress, abort) => {
                     console.log('start upload file.', file)
@@ -424,7 +424,7 @@
                             f()
                         })
                         .catch(function(e) {
-                            error('上传出错啦！')
+                            error('Uploading error!')
                             console.log(e)
                         })
                     return {
@@ -442,12 +442,12 @@
         })
         pond.on('processfiles', () => {
             Swal.fire({
-                title: '上传成功！',
-                text: '文件已全部上传',
+                title: 'Upload successful!',
+                text: 'All files have been uploaded',
                 icon: 'success',
                 showCancelButton: false,
                 confirmButtonColor: '#3085d6',
-                confirmButtonText: '刷新',
+                confirmButtonText: 'Refresh',
             }).then((result) => {
                 if (result.value) {
                     axios.post('/admin/manage/refresh/', {
@@ -468,8 +468,8 @@
         })
         pond.on('warning', (err) => {
             Swal.fire({
-                title: '出错了',
-                text: '一次最多可添加10个文件，请重试！ ',
+                title: 'Mistake',
+                text: 'Add up to 10 files at a time, please try again! ',
                 icon: 'warning',
             })
             console.log(err)
@@ -477,7 +477,7 @@
         })
         pond.on('error', (err) => {
             Swal.fire({
-                title: '出错了',
+                title: 'Mistake',
                 text: err.body,
                 icon: 'warning',
             })
@@ -501,8 +501,8 @@
                         if (data.error === '') {
                             console.log(data)
                             Swal.fire({
-                                title: '操作成功',
-                                text: '文件夹创建成功',
+                                title: 'Operated successfully',
+                                text: 'Folder created successfully',
                                 icon: 'success',
                             }).then(() => {
                                 $('#mkdirModal').modal('hide')
@@ -536,14 +536,14 @@
             $('.delete').on('click', function(e) {
                 let id = $(this).parent().parent().attr('data-id')
                 Swal.fire({
-                    title: '确定删除吗?',
-                    text: '删除后无法恢复!',
+                    title: 'Sure to delete??',
+                    text: 'Unrecoverable after deletion!',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
+                    confirmButtonText: 'Set',
+                    cancelButtonText: 'Cancel',
                 }).then((result) => {
                     if (result.value) {
                         axios.post('/admin/manage/delete', {
@@ -555,15 +555,15 @@
                                 let data = response.data
                                 if (data.error === '') {
                                     Swal.fire({
-                                        title: '操作成功',
-                                        text: '删除成功',
+                                        title: 'Operated successfully',
+                                        text: 'Deleted successfully',
                                         icon: 'success',
                                     }).then(() => {
                                         window.location.reload()
                                     })
                                 } else {
                                     Swal.showValidationMessage(
-                                        `请求出错: ${error}`,
+                                        `Request error: ${error}`,
                                     )
                                 }
                             })

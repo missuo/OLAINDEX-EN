@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title', '文件管理')
+@section('title', 'File Manager')
 @section('content')
     <!-- Page title -->
     <div class="page-header d-print-none">
@@ -10,7 +10,7 @@
                     README.md
                 </div>
                 <h2 class="page-title">
-                    文件管理
+                    File Manager
                 </h2>
             </div>
             <!-- Page title actions -->
@@ -24,7 +24,7 @@
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                             <path d="M9 13l-4 -4l4 -4m-4 4h11a4 4 0 0 1 0 8h-1"/>
                                         </svg>
-                      返回
+                      Back
                     </a>
                   </span>
                 </div>
@@ -35,7 +35,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">编辑README.md</h3>
+                    <h3 class="card-title">Edit README.md</h3>
                 </div>
                 <div class="card-body">
                     <form action="" method="post">
@@ -46,7 +46,7 @@
                         <input type="hidden" name="parent_id" value="{{ $parent_id }}">
                         <input type="hidden" name="redirect" value="{{ $redirect }}">
                         <textarea id="mde" name="content" class="invisible">{{  $content }}</textarea>
-                        <button type="submit" id="submit_btn" class="btn btn-primary">提交</button>
+                        <button type="submit" id="submit_btn" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                     strikethrough: true,
                     underscoresBreakWords: true,
                 },
-                placeholder: '在此输入内容...',
+                placeholder: 'Enter content here...',
                 renderingConfig: {
                     singleLineBreaks: true,
                     codeSyntaxHighlighting: false,
@@ -124,7 +124,7 @@
                             }
                         },
                         className: 'fa fa-info-circle',
-                        title: 'Markdown 语法！',
+                        title: 'Markdown Grammar!',
                     },
                     {
                         name: 'publish',
@@ -133,7 +133,7 @@
                             editor.clearAutosavedValue()
                         },
                         className: 'fa fa-paper-plane',
-                        title: '提交',
+                        title: 'Submit',
                     },
                 ],
                 toolbarTips: true,
